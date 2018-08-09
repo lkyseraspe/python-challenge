@@ -1,7 +1,7 @@
 #import os and write csv path
 from statistics import mean
 import os
-csvpath = os.path.join("PyBank", "budget_data.csv") 
+csvpath = os.path.join("budget_data.csv") 
 
 #Improved Reading using CSV module
 import csv
