@@ -17,9 +17,9 @@ with open(csvpath, newline='') as csvfile:
     revenues = []
 
 #run for loop for every row
-    for dog in csvlist:
-        dates.append(dog[0])
-        revenues.append(int(dog[1]))
+    for x in csvlist:
+        dates.append(x[0])
+        revenues.append(int(x[1]))
     
 #create a list for revenue change
     revchange = []
@@ -28,6 +28,7 @@ with open(csvpath, newline='') as csvfile:
     revchange = [revenues[i+1] - revenues[i] for i in range(len(revenues) -1)]
     
 #variables
+    total_revenue = sum(revenues)
     max_change = max(revchange)
     big_loss = min(revchange)
     avg_change = mean(revchange)
@@ -36,12 +37,11 @@ with open(csvpath, newline='') as csvfile:
     loss_month = None
 
 # external rev value, maybe none to start
-#for row in csvlist:
+# for row in csvlist:
 # if none
 # set external revenue val
 # skip rest of loop, go to next iteration
 # if diff == big loss
-# do stuff
 # store current rev val in external rev val
     
 #for loop to find corresponding date 
@@ -65,8 +65,9 @@ with open(csvpath, newline='') as csvfile:
     
 
     print("Financial Analysis")
-    print("-")
-    print(f"The financial analysis occured over {total_month} months")
-    print(f"The average revenue change was ${avg_change}")
-    print(f"The maximum revenue gain was ${max_change} and occured on {max_month}")
-    print(f"The biggest revenue loss was ${big_loss} and occured on {loss_month}")
+    print ("----------------------------------------------------")
+    print(f"Total Months:{total_month}")
+    print (f"Total Net Amount: $ {total_revenue}")
+    print(f"Average Change: ${avg_change}")
+    print(f"Greatest Increase in Profits: {max_month}  ${max_change}")
+    print(f"Greatest Decrease in Profits: {loss_month}  ${big_loss}")
